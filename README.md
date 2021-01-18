@@ -1,8 +1,10 @@
 ## Elevator Pitch
 Zoomsday Clock is a warning indicator for video conferencing that won 1st place in the motion competition for UCLA’s IDEA Hacks! It displays a red light if the user is in a meeting and reports how much time is left. A wave of the hand reveals when that meeting ends.
-## Presentation Slides
+## Presentation Slides Link
 Our presentation slides to the judges outline the hardware used, internal schematics, CAD, and software in greater detail:
 https://docs.google.com/presentation/d/1fV8oXwQD3U3TWHeYi3H_3ZLm06JtjUU6O8zrh4fOwos/edit#slide=id.gb6fb4ba70a_0_221
+## Devpost Link
+https://devpost.com/software/zoomsday-clock#updates
 ## Inspiration
 Having family members walk in on us during our Zoom classes and seeing horror stories on Twitter, we decided to create a warning indicator for video conferencing!
 ## What it does
