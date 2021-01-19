@@ -10,15 +10,21 @@ Having family members walk in on us during our Zoom classes and seeing horror st
 ## What it does
 We tape a 3D-printed box full of electronics to the back of the user's door. A red LED lights up if they are in a meeting, and a seven segment display below indicates how much time is left in that class. If a family member waves their hand in front of the ultrasonic distance sensor at the bottom of the box, the display will reveal when that meeting ends. We mount an IR receiver on the inside of the door, which the user can interact with via an IR emitter on a remote control. This lets the user disable the LED and clock if their meeting ended early. If the LED is already off, pressing the remote button turns it back on and starts a thirty minute timer. The user can import their weekly schedule through a web control panel.<br/>
 <br/>
-<img src="https://github.com/courtney-gibbons/IDEAHacks/blob/main/Zoomsday%20Clock%20(Day).jpeg" width=400>
+<p align="center">
+  <img src="https://github.com/courtney-gibbons/IDEAHacks/blob/main/Zoomsday%20Clock%20(Day).jpeg" width=400>
+</p>
 <br/>
+
 ## How we built it
 The LED, seven segment display, ultrasonic distance sensor, and IR receiver are connected to the ESP32 microcontroller inside custom 3D printed housing. C code uploaded to the ESP32 causes the LED to light up and the seven segment display to count down during a meeting. The ESP32 constantly checks the ultrasonic distance sensor to see if it should display when the meeting ends instead of how much time is left. It also checks to see if the IR receiver is triggered by the remote control. The entire box is powered by a 9V battery—a voltage regulator brings that down to 5V, and the ESP32 regulates that to its 3.3V logic voltage.  The remote control consists of a button, IR emitter, and resistor soldered to a 3V battery. Pressing the button causes current to flow, lighting the IR emitter.<br/>
 <br/>
-<img src=https://github.com/courtney-gibbons/IDEAHacks/blob/main/IR%20Remote%20Control.JPEG width=200>
-<img src=https://github.com/courtney-gibbons/IDEAHacks/blob/main/IR%20Receiver.jpeg width=200>
+<p align="center">
+  <img src=https://github.com/courtney-gibbons/IDEAHacks/blob/main/IR%20Remote%20Control.JPEG width=200>
+  <img src=https://github.com/courtney-gibbons/IDEAHacks/blob/main/IR%20Receiver.jpeg width=200>
+</p>
 <br/>
 <br/>
+
 The web control panel uses a library called ESP Asynchronous Web Server. This allows the user to input their meeting times in a convenient format. Then, software we developed parses user input and stores the times when their meetings start and end over the course of an entire week. The user can update their meeting times any time they like using the web server, and the clock instantly reacts accordingly.
 ## Challenges we ran into
 We thought we were getting the AV box and expected to use those parts, but we received a motion box instead. Luckily, we had our own seven segment display, and we incorporated that because we were looking forward to using the one in the AV box. We also spent a decent amount of time debugging the countdown code for the seven segment. We wrote that from scratch and, on multiple occasions, forgot that there are 60 seconds in a minute, not 100. We also had to merge four very dissimilar code bases: the countdown clock, web server, internet real time clock, and ultrasonic distance sensor. Some of these needed precise timing, so it was hard to execute with only a single microcontroller with two cores.
