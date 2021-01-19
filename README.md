@@ -12,7 +12,7 @@ We tape a 3D-printed box full of electronics to the back of the user's door. A r
 <p align="center">
   <img src="https://github.com/courtney-gibbons/IDEAHacks/blob/main/Zoomsday%20Clock%20(Day).jpeg" width=400/>
 </p>
-<title>How we built it</title>
+## How we built it</title> ##
 The LED, seven segment display, ultrasonic distance sensor, and IR receiver are connected to the ESP32 microcontroller inside custom 3D printed housing. C code uploaded to the ESP32 causes the LED to light up and the seven segment display to count down during a meeting. The ESP32 constantly checks the ultrasonic distance sensor to see if it should display when the meeting ends instead of how much time is left. It also checks to see if the IR receiver is triggered by the remote control. The entire box is powered by a 9V battery—a voltage regulator brings that down to 5V, and the ESP32 regulates that to its 3.3V logic voltage.  The remote control consists of a button, IR emitter, and resistor soldered to a 3V battery. Pressing the button causes current to flow, lighting the IR emitter.<br/>
 <img src=https://github.com/courtney-gibbons/IDEAHacks/blob/main/IR%20Remote%20Control.JPEG width=200>
 <img src=https://github.com/courtney-gibbons/IDEAHacks/blob/main/IR%20Receiver.jpeg width=200>
