@@ -9,7 +9,9 @@ https://devpost.com/software/zoomsday-clock#updates
 Having family members walk in on us during our Zoom classes and seeing horror stories on Twitter, we decided to create a warning indicator for video conferencing!
 ## What it does
 We tape a 3D-printed box full of electronics to the back of the user's door. A red LED lights up if they are in a meeting, and a seven segment display below indicates how much time is left in that class. If a family member waves their hand in front of the ultrasonic distance sensor at the bottom of the box, the display will reveal when that meeting ends. We mount an IR receiver on the inside of the door, which the user can interact with via an IR emitter on a remote control. This lets the user disable the LED and clock if their meeting ended early. If the LED is already off, pressing the remote button turns it back on and starts a thirty minute timer. The user can import their weekly schedule through a web control panel.<br/>
-<img src=https://github.com/courtney-gibbons/IDEAHacks/blob/main/Zoomsday%20Clock%20(Day).jpeg width=400>
+<p align="center">
+  <img src="https://github.com/waldyr/Sublime-Installer/blob/master/sublime_text.png?raw=true" width=400 alt="Zoomsday Clock"/>
+</p>
 ## How we built it
 The LED, seven segment display, ultrasonic distance sensor, and IR receiver are connected to the ESP32 microcontroller inside custom 3D printed housing. C code uploaded to the ESP32 causes the LED to light up and the seven segment display to count down during a meeting. The ESP32 constantly checks the ultrasonic distance sensor to see if it should display when the meeting ends instead of how much time is left. It also checks to see if the IR receiver is triggered by the remote control. The entire box is powered by a 9V battery—a voltage regulator brings that down to 5V, and the ESP32 regulates that to its 3.3V logic voltage.  The remote control consists of a button, IR emitter, and resistor soldered to a 3V battery. Pressing the button causes current to flow, lighting the IR emitter.<br/>
 <img src=https://github.com/courtney-gibbons/IDEAHacks/blob/main/IR%20Remote%20Control.JPEG width=200>
